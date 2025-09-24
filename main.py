@@ -15,7 +15,7 @@ from sqlalchemy.orm import Session
 from fastapi import Depends
 
 
-# In main.py, add this model with your other Pydantic models
+# add Pydantic models
 class ScrapedResourceData(BaseModel):
     url: str
     content: str
@@ -47,17 +47,17 @@ class TeacherCreate(PersonBase):
     department: str
 
 
-# Create a FastAPI instance
+# Creating a FastAPI instance
 app = FastAPI()
 
 
-# Define a simple endpoint
+# Defining a simple endpoint
 @app.get("/")
 def read_root():
     return {"message": "Hello, SMS API!"}
 
 
-# Create a dependency to manage database sessions
+# Creating a dependency to manage database sessions
 def get_db():
     db = SessionLocal()
     try:
@@ -66,7 +66,7 @@ def get_db():
         db.close()
 
 
-# Create a new student
+# Creating a new student
 @app.post("/students/")
 def create_student(student_data: StudentCreate, db: Session = Depends(get_db)):
     db_student = Student(
@@ -78,7 +78,7 @@ def create_student(student_data: StudentCreate, db: Session = Depends(get_db)):
     return {"message": "Student created successfully! 🎉", "student_id": db_student.id}
 
 
-# Create a new course
+# Creating a new course
 @app.post("/courses/")
 def create_course(course_data: CourseCreate, db: Session = Depends(get_db)):
     db_course = Course(
