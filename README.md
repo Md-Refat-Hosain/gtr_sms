@@ -31,7 +31,7 @@ A backend service built with **FastAPI** and **SQLAlchemy** to manage students, 
     ```dotenv
     # .env file content
     DATABASE_URL="postgresql://[USER]:[PASSWORD]@[HOST]:[PORT]/[DB_NAME]"
-    # Example: DATABASE_URL="postgresql://postgres:mysecret@localhost:5432/sms_db"
+    # Example: DATABASE_URL="postgresql://postgres:mohdrifat462@localhost:5432/GTR_WEB_SQL"
     ```
 
 5.  **Initialize Database Tables:**
