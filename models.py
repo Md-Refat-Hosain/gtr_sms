@@ -17,7 +17,7 @@ from sqlalchemy import create_engine
 DATABASE_URL = "postgresql://postgres:mohdrifat462@localhost:5432/GTR_WEB_SQL"
 
 ####
-# --- Load Environment Variables ---
+# Load Environment Variables
 load_dotenv()
 # Get the full URL from the .env file
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -36,12 +36,10 @@ engine = create_engine(DATABASE_URL)
 Base = declarative_base()
 
 
-# Person is an abstract base class. This demonstrates Abstraction.
-# The class itself won't have a table in the database.
+# Person is an abstract base class. " Abstraction "
 class Person(Base):
     __tablename__ = "people"
-    # This is a key part of Abstraction. The table exists, but the type
-    # distinguishes students from teachers.
+    
     __mapper_args__ = {"polymorphic_on": "type"}
 
     id = Column(Integer, primary_key=True, index=True)
@@ -53,7 +51,7 @@ class Person(Base):
         return f"<{self.__class__.__name__}(name='{self.name}', email='{self.email}')>"
 
 
-# Student inherits from Person. This demonstrates Inheritance.
+# Student inherits from Person. " Inheritance "
 class Student(Person):
     __tablename__ = "students"
     __mapper_args__ = {"polymorphic_identity": "student"}
@@ -64,7 +62,7 @@ class Student(Person):
     enrollments = relationship("Enrollment", back_populates="student")
 
 
-# Teacher inherits from Person. This demonstrates Inheritance.
+# Teacher inherits from Person. " Inheritance "
 class Teacher(Person):
     __tablename__ = "teachers"
     __mapper_args__ = {"polymorphic_identity": "teacher"}
@@ -123,8 +121,7 @@ class ScrapedResource(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     url = Column(String, index=True)
-    content = Column(String)  # Storing the content as a string/text
-    # You might want to add a unique constraint on the URL to prevent duplicates
+    content = Column(String)  
 
 
 if __name__ == "__main__":
