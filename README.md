@@ -11,8 +11,8 @@ A backend service built with **FastAPI** and **SQLAlchemy** to manage students, 
 
 1.  **Clone the Repository/create the project folder :**
     ```bash
-    git clone [  https://github.com/Md-Refat-Hosain/gtr_sms ]
-    cd sms_api
+    git clone [https://github.com/Md-Refat-Hosain/gtr_sms](https://github.com/Md-Refat-Hosain/gtr_sms)
+    cd gtr_sms
     ```
 
 2.  **Create and Activate Virtual Environment:**
